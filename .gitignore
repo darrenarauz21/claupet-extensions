@@ -1,0 +1,10 @@
+# Built packages go to Releases, not to the repository
+*.claupet
+out/
+
+# Never commit signing keys
+*.pem
+*.key
+
+.DS_Store
+Thumbs.db
