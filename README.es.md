@@ -20,9 +20,9 @@ Cada versión se publica como una Release de GitHub con el tag `<id>-v<versión>
 
 1. Subir `version` en `extensions/<id>/manifest.json`.
 2. Empaquetar y firmar **en el equipo** (la clave privada nunca va a GitHub):
-   `Claupet.exe --extension-pack extensions/<id> out/<id>-<versión>.claupet --clave <clave.pem> --firmante Claupet`
+   `Claupet.exe --extension-pack extensions/<id> out/<id>-<versión>.claupet --clave ~/.claupet-firma/claupet-extensiones.pem --firmante Claupet`
 3. Crear la Release `<id>-v<versión>` con ese archivo.
-4. Volver a generar y firmar `catalog.json`, y hacer commit.
+4. Volver a generar y firmar `catalog.json` con `--extension-catalog` (ver [docs/catalog.md](docs/catalog.md)), y hacer commit.
 
 Claupet solo confía en lo que lista el catálogo si su firma corresponde a la clave oficial que trae la
 app, y solo instala un paquete cuyo SHA-256 coincide con el del catálogo.
