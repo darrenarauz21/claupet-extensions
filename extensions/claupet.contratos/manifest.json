@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "id": "claupet.contratos",
+  "name": { "es": "Contratos Claupet", "en": "Claupet Contracts" },
+  "description": {
+    "es": "Las reglas de cada proyecto (.claupet/contratos) para todos los agentes que abre Claupet: las obligatorias les llegan al conectarse, y pueden buscar y leer las demás. Necesita Node.js.",
+    "en": "Each project's rules (.claupet/contratos) for every agent Claupet opens: the required ones arrive when they connect, and they can search and read the rest. Needs Node.js."
+  },
+  "version": "1.0.0",
+  "author": "Claupet",
+  "license": "MIT",
+  "homepage": "https://github.com/darrenarauz21/claupet-extensions/tree/main/extensions/claupet.contratos",
+  "claupet": ">=2.7.2",
+  "provides": ["mcp"],
+  "mcp": {
+    "contratos": {
+      "type": "stdio",
+      "program": "node",
+      "args": ["{package}/server.js"]
+    }
+  }
+}
