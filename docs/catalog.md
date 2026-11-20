@@ -1,16 +1,20 @@
 # Catalog format (`catalog.json`)
 
 Same envelope as Claupet's revocation list: the payload is signed with ES256 (ECDSA P-256 + SHA-256)
-using the official extensions key (keyId `2F0A 01CF 1379 7CF2`), and stored in base64 so the signed bytes
+using the official extensions key (keyId `4721 5FF6 1F44 C702`), and stored in base64 so the signed bytes
 are exact.
 
 ```json
 {
   "payload": "<base64 of the payload JSON>",
-  "keyId": "2f0a01cf13797cf2a233c84187b864a39514c031cca91d87c85350133341c410",
+  "keyId": "47215ff61f44c702b88565f0756eb2ae5e359d8a930c258652b5370b528ca011",
   "signature": "<base64>"
 }
 ```
+
+The official key changed on 2026-11-20: the private key of the first one (`2F0A 01CF 1379 7CF2`) was lost. Claupet
+trusts the new one from version 2.7.2 on, and the catalog revokes the old one (`keys`) since sequence 2. Older
+versions of the app ignore catalogs signed with the new key and keep the last good one.
 
 Claupet reads it from
 `https://raw.githubusercontent.com/darrenarauz21/claupet-extensions/main/catalog.json`
